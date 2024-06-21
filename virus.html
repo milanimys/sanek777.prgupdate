@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заразить ссылку</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0f0f0f; /* Черный цвет фона */
+            color: #00ff00; /* Зеленый цвет текста */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: linear-gradient(to bottom right, #008080, #800080); /* Градиентный фон */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Тень */
+            text-align: center;
+        }
+        .purple-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4b0082; /* Индиго фон кнопок */
+            color: #00ff00; /* Зеленый цвет текста кнопок */
+            border: 2px solid #00ff00; /* Зеленая рамка */
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            margin: 5px;
+        }
+        .purple-button:hover {
+            background-color: #8a2be2; /* Сиреневый фон при наведении */
+            border-color: #8a2be2; /* Сиреневая рамка при наведении */
+        }
+        .input-field {
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid #00ff00; /* Зеленая рамка */
+            border-radius: 5px;
+            background-color: #0f0f0f; /* Черный фон */
+            color: #00ff00; /* Зеленый цвет текста */
+            width: calc(100% - 22px); /* Ширина 100% минус внутренние отступы и границы */
+            margin-top: 10px;
+        }
+        #linkInfectedMessage, #copyLinkContainer, #haveFunMessage {
+            display: none;
+            margin-top: 10px;
+        }
+        .back-link {
+            margin-top: 20px;
+            display: block;
+            text-decoration: none;
+            color: #00ff00; /* Зеленый цвет текста ссылки */
+            font-size: 14px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Заразить ссылку</h1>
+        <input type="text" id="linkInputField" class="input-field" placeholder="Введите ссылку...">
+        <button class="purple-button" onclick="linkInfected()">Готово</button>
+        <button class="purple-button" onclick="resetForm()">Отмена</button>
+        <div id="linkInfectedMessage">Ссылка заражена</div>
+        <div id="copyLinkContainer">
+            <input type="text" id="infectedLinkField" class="input-field" readonly>
+            <button class="purple-button" onclick="copyLink()">Скопировать ссылку</button>
+        </div>
+        <div id="haveFunMessage">Развлекайся</div>
+        <a href="gg.html" class="back-link">Назад</a>
+    </div>
+
+    <script>
+        function linkInfected() {
+            const linkInputField = document.getElementById('linkInputField');
+            const linkInfectedMessage = document.getElementById('linkInfectedMessage');
+            const copyLinkContainer = document.getElementById('copyLinkContainer');
+            const haveFunMessage = document.getElementById('haveFunMessage');
+            const infectedLinkField = document.getElementById('infectedLinkField');
+
+            if (linkInputField.value !== '') {
+                linkInfectedMessage.style.display = 'block';
+                copyLinkContainer.style.display = 'block';
+                haveFunMessage.style.display = 'block';
+                infectedLinkField.value = linkInputField.value;
+            }
+        }
+
+        function copyLink() {
+            const infectedLinkField = document.getElementById('infectedLinkField');
+            infectedLinkField.select();
+            document.execCommand('copy');
+            alert('Ссылка скопирована');
+        }
+
+        function resetForm() {
+            document.getElementById('linkInputField').value = '';
+            document.getElementById('linkInfectedMessage').style.display = 'none';
+            document.getElementById('copyLinkContainer').style.display = 'none';
+            document.getElementById('haveFunMessage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

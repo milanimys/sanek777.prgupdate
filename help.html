@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Control</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0f0f0f; /* Черный цвет фона */
+            color: #00ff00; /* Зеленый цвет текста */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .background-image {
+            background: linear-gradient(to bottom right, #008080, #800080); /* Градиентный фон */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Тень */
+        }
+        .container {
+            padding: 20px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .purple-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4b0082; /* Индиго фон кнопок */
+            color: #00ff00; /* Зеленый цвет текста кнопок */
+            border: 2px solid #00ff00; /* Зеленая рамка */
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .purple-button:hover {
+            background-color: #8a2be2; /* Сиреневый фон при наведении */
+            border-color: #8a2be2; /* Сиреневая рамка при наведении */
+        }
+        .activated {
+            color: #ff1493; /* Розовый цвет для активированных элементов */
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 24px;
+            color: #ff1493; /* Розовый цвет заголовка */
+            text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.5); /* Тень текста */
+        }
+        .back-link {
+            margin-top: 20px;
+            display: block;
+            text-decoration: none;
+            color: #00ff00; /* Зеленый цвет текста ссылки */
+            font-size: 14px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .input-container {
+            margin-top: 10px;
+        }
+        .input-field {
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid #00ff00; /* Зеленая рамка */
+            border-radius: 5px;
+            background-color: #0f0f0f; /* Черный фон */
+            color: #00ff00; /* Зеленый цвет текста */
+            width: calc(100% - 22px); /* Ширина 100% минус внутренние отступы и границы */
+        }
+        #fullscreenMessage {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
+            color: #00ff00;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="container">
+            <h1>ХАКЕРСКИЙ ИНТЕРФЕЙС</h1>
+            <div class="button-container">
+                <button class="purple-button" onclick="showFullscreenMessage('Каждый сам за себя')">Связь</button>
+                <button class="purple-button" onclick="showFullscreenMessage('Учись сам')">Как и что нажимать?</button>
+                <button class="purple-button" onclick="window.location.href='helps.html'">Помощь</button>
+            </div>
+            <a href="gg.html" class="back-link">Назад</a>
+        </div>
+    </div>
+    <div id="fullscreenMessage" onclick="hideFullscreenMessage()">
+        <div id="messageContent"></div>
+    </div>
+
+    <script>
+        function showFullscreenMessage(message) {
+            const messageContainer = document.getElementById('fullscreenMessage');
+            const messageContent = document.getElementById('messageContent');
+            messageContent.textContent = message;
+            messageContainer.style.display = 'flex';
+        }
+
+        function hideFullscreenMessage() {
+            const messageContainer = document.getElementById('fullscreenMessage');
+            messageContainer.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

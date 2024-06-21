@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proga Sanek777</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0f0f0f; /* Черный цвет фона */
+            color: #00ff00; /* Зеленый цвет текста */
+            margin: 0;
+            padding: 0;
+            position: relative; /* Установка для позиционирования углового изображения */
+        }
+
+        .corner-image {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px; /* Ширина изображения */
+            height: 50px; /* Высота изображения */
+            cursor: pointer;
+            border-radius: 50%; /* Округление углов изображения */
+            border: 2px solid #00ff00; /* Зеленая рамка */
+            transition: transform 0.3s ease; /* Плавное изменение размера при наведении */
+        }
+
+        .corner-image:hover {
+            transform: scale(1.1); /* Увеличение размера при наведении */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a; /* Темно-серый цвет фона контейнера */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень */
+            position: relative; /* Для правильного отображения углового изображения */
+            z-index: 1; /* Поднимаем контейнер над угловым изображением */
+        }
+
+        .top-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень */
+        }
+
+        .welcome-text {
+            font-size: 24px;
+            color: #ff1493; /* Розовый цвет текста заголовка */
+            text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.5); /* Тень текста */
+            margin-bottom: 20px;
+        }
+
+        .start-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4b0082; /* Индиго фон кнопки */
+            color: #00ff00; /* Зеленый цвет текста кнопки */
+            border: 2px solid #00ff00; /* Зеленая рамка */
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .start-button:hover {
+            background-color: #8a2be2; /* Сиреневый фон при наведении */
+            border-color: #8a2be2; /* Сиреневая рамка при наведении */
+        }
+    </style>
+</head>
+<body>
+    <a href="code.html">
+        <img src="jpg/Screenshot_209.png" alt="Corner Image" class="corner-image">
+    </a>
+    <div class="container">
+        <img src="jpg/Screenshot_206.png" alt="Your Image" class="top-image">
+        <h1 class="welcome-text">Welcome to Proga Sanek777</h1>
+        <a href="gg.html" class="start-button">Start</a>
+    </div>
+</body>
+</html>

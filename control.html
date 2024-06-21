@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Control</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0f0f0f; /* Черный цвет фона */
+            color: #00ff00; /* Зеленый цвет текста */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .background-image {
+            background: linear-gradient(to bottom right, #008080, #800080); /* Градиентный фон */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Тень */
+        }
+        .container {
+            padding: 20px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .purple-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4b0082; /* Индиго фон кнопок */
+            color: #00ff00; /* Зеленый цвет текста кнопок */
+            border: 2px solid #00ff00; /* Зеленая рамка */
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .purple-button:hover {
+            background-color: #8a2be2; /* Сиреневый фон при наведении */
+            border-color: #8a2be2; /* Сиреневая рамка при наведении */
+        }
+        .activated {
+            color: #ff1493; /* Розовый цвет для активированных элементов */
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 24px;
+            color: #ff1493; /* Розовый цвет заголовка */
+            text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.5); /* Тень текста */
+        }
+        .back-link {
+            margin-top: 20px;
+            display: block;
+            text-decoration: none;
+            color: #00ff00; /* Зеленый цвет текста ссылки */
+            font-size: 14px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .input-container {
+            margin-top: 10px;
+        }
+        .input-field {
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid #00ff00; /* Зеленая рамка */
+            border-radius: 5px;
+            background-color: #0f0f0f; /* Черный фон */
+            color: #00ff00; /* Зеленый цвет текста */
+            width: calc(100% - 22px); /* Ширина 100% минус внутренние отступы и границы */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="container">
+            <h1>ХАКЕРСКИЙ ИНТЕРФЕЙС</h1>
+            <div class="button-container">
+                <button id="activateButton" class="purple-button" onclick="handleActivation()">Активация проги</button>
+                <div id="inputContainer" class="input-container" style="display: none;">
+                    <input type="text" id="activationCode" class="input-field" placeholder="Введите код...">
+                    <button class="purple-button" onclick="checkActivationCode()">Подтвердить</button>
+                </div>
+                <button id="selfDestructButton" class="purple-button" onclick="selfDestruct(this)">Самоуничтожение</button>
+            </div>
+            <a href="gg.html" class="back-link">Назад</a>
+        </div>
+    </div>
+
+    <script>
+        let isActivated = false;
+
+        function handleActivation() {
+            const button = document.getElementById('activateButton');
+            if (isActivated) {
+                button.textContent = 'Отключение...';
+                setTimeout(() => {
+                    button.textContent = 'Активация проги';
+                    isActivated = false;
+                }, 3000);
+            } else {
+                startActivation();
+            }
+        }
+
+        function startActivation() {
+            const button = document.getElementById('activateButton');
+            button.textContent = 'Ожидание подключения...';
+            document.getElementById('inputContainer').style.display = 'block';
+        }
+
+        function checkActivationCode() {
+            const input = document.getElementById('activationCode').value;
+            const button = document.getElementById('activateButton');
+            const activationCode = 'hyper546';
+            if (input === activationCode) {
+                button.textContent = 'Прога активирована';
+                isActivated = true;
+                document.getElementById('inputContainer').style.display = 'none';
+            } else {
+                button.textContent = 'Неверный код, попробуйте снова';
+                setTimeout(() => {
+                    button.textContent = 'Ожидание подключения...';
+                }, 3000);
+            }
+        }
+
+        function selfDestruct(button) {
+            button.textContent = 'Начало самоуничтожения';
+            setTimeout(function() {
+                document.body.innerHTML = ''; // Скрыть всю страницу
+            }, 3000); // 3000 миллисекунд = 3 секунды
+        }
+    </script>
+</body>
+</html>

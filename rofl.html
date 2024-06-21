@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приз в ТФ2</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0f0f0f; /* Черный цвет фона */
+            color: #00ff00; /* Зеленый цвет текста */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 36px;
+            color: #ff1493; /* Розовый цвет текста заголовка */
+            cursor: pointer; /* Делаем текст указателем при наведении */
+        }
+        .fullscreen-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
+            color: #00ff00; /* Зеленый цвет текста */
+            font-size: 30px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <h1 onclick="showFullscreenMessage()">Приз в ТФ2</h1>
+
+    <div id="fullscreenMessage" class="fullscreen-message" onclick="hideFullscreenMessage()">
+        Кто двинется тот игрок в Геншин
+    </div>
+
+    <script>
+        function showFullscreenMessage() {
+            const fullscreenMessage = document.getElementById('fullscreenMessage');
+            fullscreenMessage.style.display = 'flex';
+        }
+
+        function hideFullscreenMessage() {
+            const fullscreenMessage = document.getElementById('fullscreenMessage');
+            fullscreenMessage.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.top-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.welcome-text {
+    color: purple;
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.start-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: purple;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.start-button:hover {
+    background-color: darkmagenta;
+}
